@@ -12,19 +12,19 @@
 
         <div class="countdown">
             <div>
-                <span>{{ countdown.days }}</span>
+                <span id="days">{{ countdown.days }}</span>
                 <p>Días</p>
             </div>
             <div>
-                <span>{{ countdown.hours }}</span>
+                <span id="hours">{{ countdown.hours }}</span>
                 <p>Horas</p>
             </div>
             <div>
-                <span>{{ countdown.minutes }}</span>
+                <span id="minutes">{{ countdown.minutes }}</span>
                 <p>Minutos</p>
             </div>
             <div>
-                <span>{{ countdown.seconds }}</span>
+                <span id="seconds">{{ countdown.seconds }}</span>
                 <p>Segundos</p>
             </div>
         </div>
@@ -37,4 +37,45 @@
     </div>
 
 </body>
+<script>
+    let days = parseInt(document.getElementById("days").textContent);
+    let hours = parseInt(document.getElementById("hours").textContent);
+    let minutes = parseInt(document.getElementById("minutes").textContent);
+    let seconds = parseInt(document.getElementById("seconds").textContent);
+
+    const message = document.getElementById("message");
+
+    function updateCountdown() {
+        if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+            message.textContent = "🎉 ¡Feliz Navidad! 🥂🎄";
+            return;
+        }
+
+        seconds--;
+
+        if (seconds < 0) {
+            seconds = 59;
+            minutes--;
+        }
+
+        if (minutes < 0) {
+            minutes = 59;
+            hours--;
+        }
+
+        if (hours < 0) {
+            hours = 23;
+            days--;
+        }
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+</script>
+
 </html>
+
