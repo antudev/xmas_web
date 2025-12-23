@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cuenta regresiva Navidad 🎄</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="card">
+        <h1>🎄 Navidad se acerca 🎄</h1>
+
+        <div class="countdown">
+            <div>
+                <span>{{ countdown.days }}</span>
+                <p>Días</p>
+            </div>
+            <div>
+                <span>{{ countdown.hours }}</span>
+                <p>Horas</p>
+            </div>
+            <div>
+                <span>{{ countdown.minutes }}</span>
+                <p>Minutos</p>
+            </div>
+            <div>
+                <span>{{ countdown.seconds }}</span>
+                <p>Segundos</p>
+            </div>
+        </div>
+
+        <p class="footer">
+            Desarrollado por <a href="https://github.com/TU_USUARIO">Tu nombre</a>
+            <br>
+            ¡Feliz programación!
+        </p>
+    </div>
+
+</body>
+</html>
